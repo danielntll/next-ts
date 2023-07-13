@@ -1,0 +1,168 @@
+$background-color: #ffffff;
+$background-color-rgb: 255,255,255;
+
+$text-color: #0d0d0d;
+$text-color-rgb: 13,13,13;
+
+$color-step-50: #f3f3f3;
+$color-step-100: #e7e7e7;
+$color-step-150: #dbdbdb;
+$color-step-200: #cfcfcf;
+$color-step-250: #c3c3c3;
+$color-step-300: #b6b6b6;
+$color-step-350: #aaaaaa;
+$color-step-400: #9e9e9e;
+$color-step-450: #929292;
+$color-step-500: #868686;
+$color-step-550: #7a7a7a;
+$color-step-600: #6e6e6e;
+$color-step-650: #626262;
+$color-step-700: #565656;
+$color-step-750: #4a4a4a;
+$color-step-800: #3d3d3d;
+$color-step-850: #313131;
+$color-step-900: #252525;
+$color-step-950: #191919;
+
+
+$color-primary: #3880ff;
+$color-primary-rgb: 56,128,255;
+$color-primary-contrast: #ffffff;
+$color-primary-contrast-rgb: 255,255,255;
+$color-primary-shade: #3171e0;
+$color-primary-tint: #4c8dff;
+
+$color-secondary: #5260ff;
+$color-secondary-rgb: 82,96,255;
+$color-secondary-contrast: #ffffff;
+$color-secondary-contrast-rgb: 255,255,255;
+$color-secondary-shade: #4854e0;
+$color-secondary-tint: #6370ff;
+
+$color-tertiary: #1524d1;
+$color-tertiary-rgb: 21,36,209;
+$color-tertiary-contrast: #ffffff;
+$color-tertiary-contrast-rgb: 255,255,255;
+$color-tertiary-shade: #1220b8;
+$color-tertiary-tint: #2c3ad6;
+
+$color-success: #2dd36f;
+$color-success-rgb: 45,211,111;
+$color-success-contrast: #000000;
+$color-success-contrast-rgb: 0,0,0;
+$color-success-shade: #28ba62;
+$color-success-tint: #42d77d;
+
+$color-warning: #ffc409;
+$color-warning-rgb: 255,196,9;
+$color-warning-contrast: #000000;
+$color-warning-contrast-rgb: 0,0,0;
+$color-warning-shade: #e0ac08;
+$color-warning-tint: #ffca22;
+
+$color-danger: #eb445a;
+$color-danger-rgb: 235,68,90;
+$color-danger-contrast: #ffffff;
+$color-danger-contrast-rgb: 255,255,255;
+$color-danger-shade: #cf3c4f;
+$color-danger-tint: #ed576b;
+
+$color-medium: #92949c;
+$color-medium-rgb: 146,148,156;
+$color-medium-contrast: #000000;
+$color-medium-contrast-rgb: 0,0,0;
+$color-medium-shade: #808289;
+$color-medium-tint: #9d9fa6;
+
+$color-light: #f4f5f8;
+$color-light-rgb: 244,245,248;
+$color-light-contrast: #000000;
+$color-light-contrast-rgb: 0,0,0;
+$color-light-shade: #d7d8da;
+$color-light-tint: #f5f6f9;
+
+ 
+:export {
+  background-color : $background-color ;
+background-color-rgb : $background-color-rgb ;
+
+text-color : $text-color ;
+text-color-rgb : $text-color-rgb ;
+
+color-step-50 : $color-step-50 ;
+color-step-100 : $color-step-100 ;
+color-step-150 : $color-step-150 ;
+color-step-200 : $color-step-200 ;
+color-step-250 : $color-step-250 ;
+color-step-300 : $color-step-300 ;
+color-step-350 : $color-step-350 ;
+color-step-400 : $color-step-400 ;
+color-step-450 : $color-step-450 ;
+color-step-500 : $color-step-500 ;
+color-step-550 : $color-step-550 ;
+color-step-600 : $color-step-600 ;
+color-step-650 : $color-step-650 ;
+color-step-700 : $color-step-700 ;
+color-step-750 : $color-step-750 ;
+color-step-800 : $color-step-800 ;
+color-step-850 : $color-step-850 ;
+color-step-900 : $color-step-900 ;
+color-step-950 : $color-step-950 ;
+
+
+color-primary : $color-primary ;
+color-primary-rgb : $color-primary-rgb ;
+color-primary-contrast : $color-primary-contrast ;
+color-primary-contrast-rgb : $color-primary-contrast-rgb ;
+color-primary-shade : $color-primary-shade ;
+color-primary-tint : $color-primary-tint ;
+
+color-secondary : $color-secondary ;
+color-secondary-rgb : $color-secondary-rgb ;
+color-secondary-contrast : $color-secondary-contrast ;
+color-secondary-contrast-rgb : $color-secondary-contrast-rgb ;
+color-secondary-shade : $color-secondary-shade ;
+color-secondary-tint : $color-secondary-tint ;
+
+color-tertiary : $color-tertiary ;
+color-tertiary-rgb : $color-tertiary-rgb ;
+color-tertiary-contrast : $color-tertiary-contrast ;
+color-tertiary-contrast-rgb : $color-tertiary-contrast-rgb ;
+color-tertiary-shade : $color-tertiary-shade ;
+color-tertiary-tint : $color-tertiary-tint ;
+
+color-success : $color-success ;
+color-success-rgb : $color-success-rgb ;
+color-success-contrast : $color-success-contrast ;
+color-success-contrast-rgb : $color-success-contrast-rgb ;
+color-success-shade : $color-success-shade ;
+color-success-tint : $color-success-tint ;
+
+color-warning : $color-warning ;
+color-warning-rgb : $color-warning-rgb ;
+color-warning-contrast : $color-warning-contrast ;
+color-warning-contrast-rgb : $color-warning-contrast-rgb ;
+color-warning-shade : $color-warning-shade ;
+color-warning-tint : $color-warning-tint ;
+
+color-danger : $color-danger ;
+color-danger-rgb : $color-danger-rgb ;
+color-danger-contrast : $color-danger-contrast ;
+color-danger-contrast-rgb : $color-danger-contrast-rgb ;
+color-danger-shade : $color-danger-shade ;
+color-danger-tint : $color-danger-tint ;
+
+color-medium : $color-medium ;
+color-medium-rgb : $color-medium-rgb ;
+color-medium-contrast : $color-medium-contrast ;
+color-medium-contrast-rgb : $color-medium-contrast-rgb ;
+color-medium-shade : $color-medium-shade ;
+color-medium-tint : $color-medium-tint ;
+
+color-light : $color-light ;
+color-light-rgb : $color-light-rgb ;
+color-light-contrast : $color-light-contrast ;
+color-light-contrast-rgb : $color-light-contrast-rgb ;
+color-light-shade : $color-light-shade ;
+color-light-tint : $color-light-tint ;
+}
