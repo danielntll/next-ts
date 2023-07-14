@@ -2,11 +2,12 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Slider from '@/components/Slider/Slider'
-import { roomList } from '@/mocks/reservations'
+import { tRoom } from '@/types/tRoom'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({ roomList }: any) {
   return (
     <>
       <Head>
@@ -24,13 +25,13 @@ export default function Home() {
             <div className={`${styles.section}`}>
               <p className={`${styles.title}`}>Our selection</p>
               <div className={`${styles.content}`}>
-                <Slider data={roomList} />
+                <Slider data={roomList.data} />
               </div>
             </div>
             <div className={`${styles.section}`}>
               <p className={`${styles.title}`}>Top rated</p>
               <div className={`${styles.content}`}>
-                <Slider data={roomList} />
+                <Slider data={roomList.data} />
               </div>
             </div>
           </div>
@@ -39,4 +40,10 @@ export default function Home() {
       </main>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(`http://localhost:3000/api/homeData`);
+  const roomList: tRoom[] = await res.json()
+  return { props: { roomList } }
 }
