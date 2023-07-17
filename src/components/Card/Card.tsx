@@ -1,6 +1,6 @@
 import { tRoom } from '../../types/tRoom';
 import styles from './Card.module.scss';
-import { IoStarSharp, IoCashSharp, IoChevronForwardOutline, IoCheckmarkOutline, IoCloseOutline } from "react-icons/io5";
+import { IoStarSharp, IoCashSharp, IoCheckmarkOutline, IoCloseOutline, IoHeartOutline } from "react-icons/io5";
 
 
 interface ComponentProps {
@@ -74,6 +74,9 @@ const Card: React.FC<ComponentProps> = ({ cardData }) => {
               Open
               <IoChevronForwardOutline />
             </Link> */}
+            <div className={`${styles.likeButton}`}>
+              <IoHeartOutline size={24} />
+            </div>
           </div>
         </div>
       </div>

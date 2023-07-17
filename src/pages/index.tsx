@@ -3,11 +3,150 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Slider from '@/components/Slider/Slider'
 import { tRoom } from '@/types/tRoom'
+import { useReducer } from 'react'
+import React from 'react'
+import Card from '@/components/Card/Card'
 
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
+const initialLiked: tRoom[] = [
+  {
+    "id": 1,
+    "name": "Bella Vista Hotel",
+    "description": "A luxurious hotel with panoramic ocean views",
+    "location": "Coastal city",
+    "price": 200,
+    "availability": true,
+    "reviews": [
+      {
+        "author": "Marco",
+        "comment": "Excellent service and spacious rooms"
+      },
+      {
+        "author": "Giulia",
+        "comment": "Friendly staff and delicious breakfast"
+      }
+    ],
+    "imageLocation": "https://picsum.photos/300/200?1",
+    "amenities": [
+      "Free Wi-Fi",
+      "Swimming pool",
+      "Fitness center"
+    ],
+    "rating": 4.5,
+    "contact": {
+      "phone": "+1234567890",
+      "email": "info@bellavista.com"
+    },
+    "website": "https://www.bellavista.com",
+    "checkInTime": "15:00",
+    "checkOutTime": "11:00",
+    "nearbyAttractions": [
+      "Beach",
+      "Shopping mall",
+      "Fine dining"
+    ],
+    "roomsAvailable": [
+      {
+        "type": "Standard",
+        "price": 200,
+        "quantity": 5
+      },
+      {
+        "type": "Deluxe",
+        "price": 300,
+        "quantity": 3
+      }
+    ],
+    "featured": true
+  },
+  {
+    "id": 2,
+    "name": "Mountain Green Hotel",
+    "description": "A cozy hotel nestled in the mountains",
+    "location": "Mountain area",
+    "price": 150,
+    "availability": false,
+    "reviews": [
+      {
+        "author": "Luca",
+        "comment": "Quiet and relaxing atmosphere"
+      },
+      {
+        "author": "Simona",
+        "comment": "Clean rooms and friendly staff"
+      }
+    ],
+    "imageLocation": "https://picsum.photos/300/200?2",
+    "amenities": [
+      "Free parking",
+      "Restaurant",
+      "Spa"
+    ],
+    "rating": 4.2,
+    "contact": {
+      "phone": "+9876543210",
+      "email": "info@mountaingreen.com"
+    },
+    "website": "https://www.mountaingreen.com",
+    "checkInTime": "14:00",
+    "checkOutTime": "12:00",
+    "nearbyAttractions": [
+      "Hiking trails",
+      "Ski resort",
+      "Nature reserve"
+    ],
+    "roomsAvailable": [
+      {
+        "type": "Standard",
+        "price": 150,
+        "quantity": 8
+      },
+      {
+        "type": "Suite",
+        "price": 250,
+        "quantity": 2
+      }
+    ],
+    "featured": false
+  }
+]
+export const likedReducer = (liked: any, action: any) => {
+  const data = action.object;
+  switch (action.type) {
+    case "add":
+      return [
+        ...liked,
+        data
+      ]
+      break;
+    case "remove":
+      return {}
+      break;
+
+    default:
+      throw Error("Unknow action :", action.type)
+      break;
+  }
+}
+
 
 export default function Home({ roomList }: any) {
+  // VARIABLES ----------------------
+  const [liked, dispatch] = React.useReducer(
+    likedReducer,
+    initialLiked
+  )
+  // CONDITIONS ---------------------
+  // FUNCTIONS ----------------------
+  const handleLike = (object: tRoom) => {
+    dispatch({
+      type: "add",
+      object: object,
+    })
+  }
+  console.log(liked)
+  // RETURN -------------------------
   return (
     <>
       <Head>
@@ -21,6 +160,67 @@ export default function Home({ roomList }: any) {
           <h1 className={`${styles.page__title}`}>
             Home
           </h1>
+          <div onClick={() => handleLike({
+            "id": 1,
+            "name": "Bella Vista Hotel",
+            "description": "A luxurious hotel with panoramic ocean views",
+            "location": "Coastal city",
+            "price": 200,
+            "availability": true,
+            "reviews": [
+              {
+                "author": "Marco",
+                "comment": "Excellent service and spacious rooms"
+              },
+              {
+                "author": "Giulia",
+                "comment": "Friendly staff and delicious breakfast"
+              }
+            ],
+            "imageLocation": "https://picsum.photos/300/200?1",
+            "amenities": [
+              "Free Wi-Fi",
+              "Swimming pool",
+              "Fitness center"
+            ],
+            "rating": 4.5,
+            "contact": {
+              "phone": "+1234567890",
+              "email": "info@bellavista.com"
+            },
+            "website": "https://www.bellavista.com",
+            "checkInTime": "15:00",
+            "checkOutTime": "11:00",
+            "nearbyAttractions": [
+              "Beach",
+              "Shopping mall",
+              "Fine dining"
+            ],
+            "roomsAvailable": [
+              {
+                "type": "Standard",
+                "price": 200,
+                "quantity": 5
+              },
+              {
+                "type": "Deluxe",
+                "price": 300,
+                "quantity": 3
+              }
+            ],
+            "featured": true
+          },)}>
+            CLICK TO USE REDUCER
+
+          </div>
+          <div>
+            {liked.map((data: tRoom, index: number) => {
+              return (
+                <Card cardData={data} />
+              )
+            })}
+          </div>
+          <hr /><hr />
           <div className={`${styles.page__content}`}>
             <div className={`${styles.section}`}>
               <p className={`${styles.title}`}>Our selection</p>
@@ -44,6 +244,7 @@ export default function Home({ roomList }: any) {
 
 export async function getServerSideProps() {
   const res = await fetch(`http://localhost:3000/api/homeData`);
-  const roomList: tRoom[] = await res.json()
+  const roomList: tRoom[] = await res.json();
+
   return { props: { roomList } }
 }
